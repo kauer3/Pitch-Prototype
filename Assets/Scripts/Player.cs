@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed = 10f;
+    public float rotationSpeed = 6f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,7 @@ public class Player : MonoBehaviour
         Vector3 inputDirection = input.normalized;
 
         transform.Translate(inputDirection * speed * Time.deltaTime);
+
+        transform.Rotate(Vector3.up * Time.deltaTime * Input.GetAxis("Mouse X") * rotationSpeed);
     }
 }
